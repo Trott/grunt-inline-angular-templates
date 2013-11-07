@@ -34,7 +34,8 @@ module.exports = function (grunt) {
                     {src: ['test/fixtures/index.html'], dest: 'tmp/custom-replaceWith.html'},
                     {src: ['test/fixtures/index.html'], dest: 'tmp/custom-append.html'},
                     {src: ['test/fixtures/index.html'], dest: 'tmp/custom-before.html'},
-                    {src: ['test/fixtures/index.html'], dest: 'tmp/custom-after.html'}
+                    {src: ['test/fixtures/index.html'], dest: 'tmp/custom-after.html'},
+                    {src: ['test/fixtures/no-munging-attribute-names.html'], dest: 'tmp/no-munging-attribute-names.html'},
                 ]
             }
         },
@@ -104,7 +105,20 @@ module.exports = function (grunt) {
                         'test/fixtures/templates/template2.html'
                     ]
                 }
-            }
+            },
+            no_munging_attribute_names: {
+                options: {
+                    base: 'text/fixtures',
+                    prefix: '/',
+                    selector: '#templates',
+                },
+                files: {
+                    'tmp/no-munging-attribute-names.html': [
+                        'test/fixtures/templates/template1.html',
+                        'test/fixtures/templates/template2.html',
+                    ]
+                }
+            },
         },
 
         // Unit tests.
